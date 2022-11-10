@@ -52,18 +52,18 @@ public class FriendsMenu {
             System.out.println("Ven ikke fundet!");
             return;
         }
-        System.out.println("Indast ny adresse: (tom for ikke at ændre)");
+        System.out.println("Indast ny adresse: (enter for ikke at ændre)");
         String address = getEmptyStringFromUser();
-        System.out.println("Indast ny by (tom for ikke at ændre): ");
+        System.out.println("Indast ny by (enter for ikke at ændre): ");
         String city = getEmptyStringFromUser();
-        System.out.println("Indast nyt postnummer (tom for ikke at ændre): ");
+        System.out.println("Indast nyt postnummer (enter for ikke at ændre): ");
         String postalcode = getEmptyStringFromUser();
-        System.out.println("Indast ny email (tom for ikke at ændre): ");
+        System.out.println("Indast ny email (enter for ikke at ændre): ");
         String email = getEmptyStringFromUser();
-        System.out.println("Indast nyt telefonnummer (tom for ikke at ændre): ");
+        System.out.println("Indast nyt telefonnummer (enter for ikke at ændre): ");
         String phoneNumber = getEmptyStringFromUser();
         friend = friendController.updateFriend(friend, address, city, postalcode, email, phoneNumber);
-        System.out.println("LP opdateret");
+        System.out.println("Ven opdateret");
         
     }
 
