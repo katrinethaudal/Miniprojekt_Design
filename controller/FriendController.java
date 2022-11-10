@@ -1,24 +1,26 @@
 package controller;
 
+import java.util.ArrayList;
+
 import model.Friend;
 import model.FriendContainer;
 
-public class FriendController {
-	private static FriendController instance;
-	
+public class FriendController {	
 	private FriendContainer friendContainer;
 	
-	private FriendController() {
-		
+	public FriendController() {
+		friendContainer = FriendContainer.getInstance();
 	}
 	public Friend findFriend(String name) {
 		return friendContainer.findFriend(name);
 	}
 	
-	public static FriendController getInstance() {
-		if (instance == null) {
-			instance = new FriendController();
-		}
-		return instance;
+	public ArrayList<Friend> findAllFriends() {
+		return friendContainer.findAllFriends();
+	}
+	
+	public void AddFriend(String name) {
+		Friend friend = new Friend(name);
+		friendContainer.addFriend(friend);
 	}
 }

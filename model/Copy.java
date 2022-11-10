@@ -2,11 +2,11 @@ package model;
 
 public class Copy {
 	private int copyNumber;
-	private int lpSerialNumber;
+	private LP lp;
 
-	public Copy(int copyNumber, int lpSerialNumber) {
+	public Copy(int copyNumber, LP lp) {
 		this.copyNumber = copyNumber;
-		this.lpSerialNumber = lpSerialNumber;
+		this.lp = lp;
 	}
 	
 	public int getCopyNumber() {
@@ -17,12 +17,12 @@ public class Copy {
 		this.copyNumber = copyNumber;
 	}
 
-	public int getLpSerialNumber() {
-		return lpSerialNumber;
+	public LP getLP() {
+		return lp;
 	}
 
-	public void setLpSerialNumber(int lpSerialNumber) {
-		this.lpSerialNumber = lpSerialNumber;
+	public void setLP(LP lp) {
+		this.lp = lp;
 	}
 
 }

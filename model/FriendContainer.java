@@ -11,6 +11,23 @@ public class FriendContainer {
 		friends = new ArrayList<>();
 	}
 	
+	public void addFriend(Friend friend) {
+		friends.add(friend);
+	}
+	
+	public Friend findFriend(String name) {
+		for (Friend friend : friends) {
+			if (friend.getName().equals(name)) {
+				return friend;
+			}
+		}
+		return null;
+	}
+	
+	public ArrayList<Friend> findAllFriends() {
+		return friends;
+	}
+	
 	public static FriendContainer getInstance() {
 		if (instance == null) {
 			instance = new FriendContainer();
@@ -18,12 +35,4 @@ public class FriendContainer {
 		return instance;
 	}
 	
-	public Friend findFriend(String name) {
-		for (Friend friend : friends) {
-			if (friend.getName() == name) {
-				return friend;
-			}
-		}
-		return null;
-	}
 }

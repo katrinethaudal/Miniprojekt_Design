@@ -24,16 +24,13 @@ public class MainMenu {
 			int choice = writeMainMenu();
 			switch (choice) {
 			case 1:
-				System.out.println("Denne er ikke implementeret endnu");
+				friendsMenu.start();
 				break;
 			case 2:
 				lpMenu.start();
 				break;
 			case 3:
 				loanMenu.start();
-				break;
-			case 4:
-				friendsMenu.start();
 				break;
 			case 0:
 				System.out.println("Tak for denne gang.");
@@ -49,7 +46,7 @@ public class MainMenu {
 	private int writeMainMenu() {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("****** Hovedmenu ******");
-		System.out.println(" (1) Lånermenu");
+		System.out.println(" (1) Vennemenu");
 		System.out.println(" (2) LP menu");
 		System.out.println(" (3) Udlånsmenu");
 		System.out.println(" (9) Generer testdata");// will generate testdata, delete in final version

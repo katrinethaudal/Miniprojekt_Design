@@ -27,16 +27,12 @@ public class LPContainer {
 		lp.addCopy(copy);
 	}
 	
-	public Copy findCopy(int copyNumber) {
-		for (LP lp : lps) {
-			ArrayList<Copy> copies = lp.getCopies();
-			for (Copy copy : copies) {
-				if (copy.getCopyNumber() == copyNumber) {
-					return copy;
-				}
-			}
+	public Copy findCopy(int serialNumber, int copyNumber) {
+		LP lp = findLP(serialNumber);
+		if (lp == null) {
+			return null;
 		}
-		return null;
+		return lp.getCopy(copyNumber);
 	}
 	
 	public LP findLP(int serialNumber) {
@@ -53,6 +49,10 @@ public class LPContainer {
 			instance =  new LPContainer();
 		}
 		return instance;
+	}
+
+	public void deleteLP(LP lp) {
+		lps.remove(lp);
 	}
 	
 }

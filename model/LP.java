@@ -85,4 +85,13 @@ public class LP {
 		copies.add(copy);
 	}
 	
+	public Copy getCopy(int copyNumber) {
+		for (Copy copy : copies) {
+			if (copy.getCopyNumber() == copyNumber) {
+				return copy;
+			}
+		}
+		return null;
+	}
+	
 }

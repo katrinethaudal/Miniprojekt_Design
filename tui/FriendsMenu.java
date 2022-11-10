@@ -1,24 +1,33 @@
 package tui;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import controller.FriendController;
+import model.Friend;
 
 public class FriendsMenu {
 
+	private FriendController friendController;
+	
 	public FriendsMenu() {
-
+		friendController = new FriendController();
 	}
 
 	public void start() {
-		FriendsMenu();
+		friendsMenu();
 	}
 
-	private void FriendsMenu() {
+	private void friendsMenu() {
 		boolean running = true;
 		while (running) {
 			int choice = writeFriendsMenu();
 			switch (choice) {
 			case 1:
-				System.out.println(" Denne er ikke implementeret endnu!");
+				createFriend();
+				break;
+			case 2:
+				findFriend();
 				break;
 			case 0:
 				running = false;
@@ -33,11 +42,34 @@ public class FriendsMenu {
 	private int writeFriendsMenu() {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("****** Friends menu ******");
-		System.out.println(" (1) HVAD SKAL DEN KUNNE HER");
+		System.out.println(" (1) Opret ven");
+		System.out.println(" (2) Find ven");
 		System.out.println(" (0) Tilbage");
 		System.out.print("\n Vælg:");
 		int choice = getIntegerFromUser(keyboard);
 		return choice;
+	}
+	
+	private void createFriend() {
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Indtast navn: ");
+		String name = getStringFromUser(keyboard);
+		friendController.AddFriend(name);
+		System.out.println("Ven oprettet");
+	}
+	
+	private void findFriend() {
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Indtast navn: ");
+		String name = getStringFromUser(keyboard);
+		Friend friend = friendController.findFriend(name);
+		if (friend != null) {
+			System.out.println("Ven fundet: " + friend.getName());
+		} else {
+			System.out.println("Ven ikke fundet");
+			ArrayList<Friend> friends = friendController.findAllFriends();
+			System.out.println("Antal venner: " + friends.size());
+		}
 	}
 
 	private int getIntegerFromUser(Scanner keyboard) {
@@ -46,5 +78,13 @@ public class FriendsMenu {
 			keyboard.nextLine();
 		}
 		return keyboard.nextInt();
+	}
+	
+	private String getStringFromUser(Scanner keyboard) {
+		while (!keyboard.hasNextLine()) {
+			System.out.println("Der skal indtastest et navn");
+			keyboard.nextLine();
+		}
+		return keyboard.nextLine();
 	}
 }
