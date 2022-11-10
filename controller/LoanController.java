@@ -42,6 +42,6 @@ public class LoanController {
 
 	public Loan findLoan(int loanNumber) {
 		Loan loan = loanContainer.findLoan(loanNumber);
-		return null;
+		return loan;
 	}
 }
