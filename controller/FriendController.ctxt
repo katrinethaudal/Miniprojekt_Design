@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=FriendController
+comment1.params=
+comment1.target=FriendController()
+comment2.params=name
+comment2.target=model.Friend\ findFriend(java.lang.String)
+comment3.params=
+comment3.target=java.util.ArrayList\ findAllFriends()
+comment4.params=name\ address\ city\ postalcode\ email\ phonenumber
+comment4.target=void\ addFriend(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment5.params=name
+comment5.target=void\ deleteFriend(java.lang.String)
+comment6.params=friend\ address\ city\ postalcode\ email\ phoneNumber
+comment6.target=model.Friend\ updateFriend(model.Friend,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment6.text=\r\n\ Remove\ the\ friend\ from\ the\ container\ and\ make\ it\ again\ with\ the\ new\ instance\ variables\r\n\ @param\ friend\r\n\ @param\ address\r\n\ @param\ city\r\n\ @param\ postalcode\r\n\ @param\ email\r\n\ @param\ phoneNumber\r\n\ @return\r\n
+numComments=7
