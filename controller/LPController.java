@@ -19,8 +19,9 @@ public class LPController {
 		return lpContainer.findLP(serialNumber);
 	}
 	
-	public LP CreateLP(String name, int serialNumber, String artist) {
+	public LP CreateLP(String name, int serialNumber, String artist, String publicationDate) {
 		LP lp = new LP(serialNumber, name, artist);
+		lp.setPublicationDate(publicationDate);
 		lpContainer.AddLP(lp);
 		return lp;
 	}
@@ -41,6 +42,26 @@ public class LPController {
 			return;
 		}
 		lpContainer.deleteLP(lp);
+	}
+
+	public LP updateLP(LP lp, String newTitle, String newArtist, String newPublicationDate) {
+		lpContainer.deleteLP(lp);
+		if (!newTitle.isEmpty()) {
+			lp.setTitle(newTitle);
+		}
+		if (!newArtist.isEmpty()) {
+			lp.setArtist(newArtist);
+		}
+		if (!newPublicationDate.isEmpty()) {
+			lp.setPublicationDate(newPublicationDate);
+		}
+		lpContainer.AddLP(lp);
+		return lp;
+	}
+
+	public void deleteCopy(int serialNumber, int copyNumber) {
+		lpContainer.deleteCopy(serialNumber, copyNumber);
+		
 	}
 
 }

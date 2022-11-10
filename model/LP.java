@@ -85,6 +85,11 @@ public class LP {
 		copies.add(copy);
 	}
 	
+	/**
+	 * Find a copy with a specific number
+	 * @param copyNumber
+	 * @return
+	 */
 	public Copy getCopy(int copyNumber) {
 		for (Copy copy : copies) {
 			if (copy.getCopyNumber() == copyNumber) {
@@ -92,6 +97,18 @@ public class LP {
 			}
 		}
 		return null;
+	}
+
+	public void deleteCopy(int copyNumber) {
+		Copy copy = null;
+		for (Copy forCopy : copies) {
+			if (forCopy.getCopyNumber() == copyNumber) {
+				copy = forCopy; 
+			}
+		}
+		if (copy != null) {
+			copies.remove(copy);
+		}
 	}
 	
 }

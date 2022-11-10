@@ -34,13 +34,13 @@ public class LPMenu {
 				findCopy();
 				break;
 			case 5:
-				System.out.println("Ikke implementeret endnu!");
+				updateLP();
 				break;
 			case 6:
 				deleteLP();
 				break;
 			case 7:
-				System.out.println("Ikke implementeret endnu!");
+				deleteCopy();
 				break;
 			case 0:
 				running = false;
@@ -50,6 +50,33 @@ public class LPMenu {
 				break;
 			}
 		}
+	}
+
+	private void updateLP() {
+		System.out.println("Indtast LP serienummer: ");
+		int serialNumber = getIntegerFromUser();
+		LP lp = lpController.findLP(serialNumber);
+		if (lp == null) {
+			System.out.println("LP findes ikke!");
+			return;
+		}
+		System.out.println("Indast ny titel: (tom for ikke at ændre)");
+		String title = getEmptyStringFromUser();
+		System.out.println("Indast ny kunstner (tom for ikke at ændre): ");
+		String artist = getEmptyStringFromUser();
+		System.out.println("Indast ny udgivelsesdato (tom for ikke at ændre): ");
+		String publicationDate = getEmptyStringFromUser();
+		lp = lpController.updateLP(lp, title, artist, publicationDate);
+		System.out.println("LP opdateret");
+	}
+
+	private void deleteCopy() {
+		System.out.println("Indtast LP serienummer: ");
+		int serialNumber = getIntegerFromUser();
+		System.out.println("Indtast kopinummer: ");
+		int copyNumber = getIntegerFromUser();
+		lpController.deleteCopy(serialNumber, copyNumber);
+		System.out.println("Kopi er slettet");
 	}
 
 	private void deleteLP() {
@@ -67,7 +94,7 @@ public class LPMenu {
 		if (copy == null) {
 			System.out.println("Kopi ikke fundet");
 		} else {
-			System.out.println("Kopi fundet: " + copy.getCopyNumber());
+			System.out.println("Kopi fundet med nummer: " + copy.getCopyNumber());
 		}
 	}
 
@@ -81,6 +108,7 @@ public class LPMenu {
 			System.out.println("LP fundet: " + lp.getSerialNumber());
 			System.out.println("Titel: " + lp.getTitle());
 			System.out.println("Kunstner: " + lp.getArtist());
+			System.out.println("Udgivelsesdato: " + lp.getPublicationDate());
 			System.out.println("Antal kopier: " + lp.getCopies().size());
 		}
 	}
@@ -107,7 +135,9 @@ public class LPMenu {
 		String name = getStringFromUser();
 		System.out.println("Indtast navn på kunstner: ");
 		String artist = getStringFromUser();
-		LP lp = lpController.CreateLP(name, serialNumber, artist);
+		System.out.println("Indtast udgivelsesdato: ");
+		String publicationDate = getStringFromUser();
+		LP lp = lpController.CreateLP(name, serialNumber, artist, publicationDate);
 		if (lp == null) {
 			System.out.println("LP Ikke oprettet");
 		} else {
@@ -143,6 +173,11 @@ public class LPMenu {
 			System.out.println("Der skal indtastest et navn");
 			keyboard.nextLine();
 		}
+		return keyboard.nextLine();
+	}
+	
+	private String getEmptyStringFromUser() {
+		Scanner keyboard = new Scanner(System.in);
 		return keyboard.nextLine();
 	}
 }

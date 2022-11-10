@@ -34,7 +34,7 @@ public class LoanController {
 			System.out.println("Copy er ikke fundet");
 			return null;
 		}
-		Loan loan = new Loan(loanNumber, period, copy, serialNumber, friend);
+		Loan loan = new Loan(loanNumber, period, copy, friend);
 		loanContainer.addLoan(loan);
 		return loan;
 	}

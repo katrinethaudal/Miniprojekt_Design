@@ -8,10 +8,11 @@ public class Loan {
 	private Copy copy;
 	private Friend friend;
 	
-	public Loan(int loanNumber, int period, Copy copy, int serialNumber, Friend friend) {
+	public Loan(int loanNumber, int period, Copy copy, Friend friend) {
 		this.loanNumber = loanNumber;
 		this.copy = copy;
 		this.friend = friend;
+		this.period = period;
 	}
 
 	public int getLoanNumber() {

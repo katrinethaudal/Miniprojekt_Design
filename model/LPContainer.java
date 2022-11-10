@@ -54,5 +54,13 @@ public class LPContainer {
 	public void deleteLP(LP lp) {
 		lps.remove(lp);
 	}
-	
+
+	public void deleteCopy(int serialNumber, int copyNumber) {
+		for (LP lp : lps) {
+			if (lp.getSerialNumber() == serialNumber) {
+				lp.deleteCopy(copyNumber);
+			}
+		}
+		
+	}
 }

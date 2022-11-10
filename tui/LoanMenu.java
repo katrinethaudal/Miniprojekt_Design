@@ -74,7 +74,7 @@ public class LoanMenu {
 		if (loan == null) {
 			System.out.println("Lån ikke fundet!");
 		} else {
-			System.out.println("Lån fundet: " + loan.getLoanNumber());
+			System.out.println("Lån fundet med nummer: " + loan.getLoanNumber());
 			System.out.println("Lånets periode: " + loan.getPeriod());
 			System.out.println("Kopi: " + loan.getCopy().getCopyNumber());
 			System.out.println("Lånets status: " + loan.getState());

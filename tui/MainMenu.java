@@ -49,7 +49,6 @@ public class MainMenu {
 		System.out.println(" (1) Vennemenu");
 		System.out.println(" (2) LP menu");
 		System.out.println(" (3) Udlånsmenu");
-		System.out.println(" (9) Generer testdata");// will generate testdata, delete in final version
 		System.out.println(" (0) Afslut programmet");
 		System.out.print("\n Vælg:");
 
