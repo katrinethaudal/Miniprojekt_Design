@@ -81,6 +81,7 @@ public class LPMenu {
 			System.out.println("LP fundet: " + lp.getSerialNumber());
 			System.out.println("Titel: " + lp.getTitle());
 			System.out.println("Kunstner: " + lp.getArtist());
+			System.out.println("Antal kopier: " + lp.getCopies().size());
 		}
 	}
 
