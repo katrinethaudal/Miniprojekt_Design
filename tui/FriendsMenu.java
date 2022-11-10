@@ -29,6 +29,9 @@ public class FriendsMenu {
 			case 2:
 				findFriend();
 				break;
+			case 3:
+				deleteFriend();
+				break;
 			case 0:
 				running = false;
 				break;
@@ -44,6 +47,7 @@ public class FriendsMenu {
 		System.out.println("****** Friends menu ******");
 		System.out.println(" (1) Opret ven");
 		System.out.println(" (2) Find ven");
+		System.out.println(" (3) Slet ven");
 		System.out.println(" (0) Tilbage");
 		System.out.print("\n Vælg:");
 		int choice = getIntegerFromUser(keyboard);
@@ -54,8 +58,16 @@ public class FriendsMenu {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Indtast navn: ");
 		String name = getStringFromUser(keyboard);
-		friendController.AddFriend(name);
+		friendController.addFriend(name);
 		System.out.println("Ven oprettet");
+	}
+	
+	private void deleteFriend() {
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Indtast navn: ");
+		String name = getStringFromUser(keyboard);
+		friendController.deleteFriend(name);
+		System.out.println("Ven slettet");
 	}
 	
 	private void findFriend() {

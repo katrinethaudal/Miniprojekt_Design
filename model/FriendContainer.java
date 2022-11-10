@@ -34,5 +34,9 @@ public class FriendContainer {
 		}
 		return instance;
 	}
+
+	public void deleteFriend(Friend friend) {
+		friends.remove(friend);
+	}
 	
 }

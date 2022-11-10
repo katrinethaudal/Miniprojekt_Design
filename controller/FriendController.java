@@ -19,8 +19,16 @@ public class FriendController {
 		return friendContainer.findAllFriends();
 	}
 	
-	public void AddFriend(String name) {
+	public void addFriend(String name) {
 		Friend friend = new Friend(name);
 		friendContainer.addFriend(friend);
+	}
+	
+	public void deleteFriend(String name) {
+		Friend friend = findFriend(name);
+		if (friend == null) {
+			return;
+		}
+		friendContainer.deleteFriend(friend);
 	}
 }
